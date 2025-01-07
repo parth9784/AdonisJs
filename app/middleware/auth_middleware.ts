@@ -1,12 +1,23 @@
+import UnauthenticatedException from '#exceptions/unauthenticated_exception';
 import type { HttpContext } from '@adonisjs/core/http'
 import type { NextFn } from '@adonisjs/core/types/http'
-
+import jwt from 'jsonwebtoken';
 export default class AuthMiddleware {
   async handle(ctx: HttpContext, next: NextFn) {
     /**
      * Middleware logic goes here (before the next call)
      */
     console.log("i m middleware...")
+    const token= ctx.request.header('Authorization');
+    if(!token){
+        throw new UnauthenticatedException("No token provided");
+    }
+    try{
+      jwt.verify(token,"PARTH");
+    }catch(error){
+      throw new UnauthenticatedException("Invalid token");
+    }
+    
 
     /**
      * Call next method in the pipeline and return its output
