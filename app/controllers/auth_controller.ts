@@ -5,6 +5,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 // import { validate } from '@vinejs/form-validator'
 import jwt from 'jsonwebtoken';
 import UnauthenticatedException from '#exceptions/unauthenticated_exception';
+// import Env from '@adonisjs/core/env';
 const data=[
     {id:1,name:"parth",age:20,email:"parth@gmail.com",password:"parth123"},
     {id:2,name:"elon",age:33,email:"elon@gmail.com",password:"elon123"},
