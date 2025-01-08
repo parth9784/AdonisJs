@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
-import { serialize } from 'v8'
+// import { serialize } from 'v8'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
